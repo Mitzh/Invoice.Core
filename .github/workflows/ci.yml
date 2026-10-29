@@ -1,0 +1,28 @@
+name: Build and validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - run: dotnet restore Invoice.Core.sln --locked-mode
+      - run: dotnet build Invoice.Core.sln -c Release --no-restore
+      - name: Install PDF renderer for scanned-PDF checks
+        run: choco install poppler --yes --no-progress
+      - shell: pwsh
+        run: ./tests/RunChecks.ps1
+      - run: dotnet pack src/Invoice.Core -c Release --no-restore -o artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*.nupkg

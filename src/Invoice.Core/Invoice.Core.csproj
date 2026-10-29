@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <AssemblyName>Mitzh.Invoice.Core</AssemblyName>
+    <PackageId>Mitzh.Invoice.Core</PackageId>
+    <Description>Offline invoice recognition for XML, OFD, PDF and images, including railway e-tickets. Simple file path and stream APIs.</Description>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="RapidOcrNet" Version="4.2.0" />
+    <PackageReference Include="PdfPig" Version="0.1.14" />
+    <None Include="../../README.md" Pack="true" PackagePath="README.md" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../../THIRD-PARTY.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

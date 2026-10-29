@@ -1,0 +1,10 @@
+* text=auto
+*.cs text eol=crlf
+*.csproj text eol=crlf
+*.sln text eol=crlf
+*.onnx -text
+models/ppocrv5_dict.txt -text
+*.png -text
+*.jpg -text
+*.pdf -text
+*.ofd -text

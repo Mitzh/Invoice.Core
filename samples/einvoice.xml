@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Synthetic demo: not an issued invoice, not signed, not for reimbursement. -->
+<EInvoice>
+  <Header>
+    <EIid>26000000000000000001</EIid>
+    <EInvoiceTag>DEMO</EInvoiceTag><Version>0.33</Version>
+    <InherentLabel>
+      <EInvoiceType><LabelCode>01</LabelCode><LabelName>电子发票</LabelName></EInvoiceType>
+      <GeneralOrSpecialVAT><LabelCode>01</LabelCode><LabelName>增值税专用发票</LabelName></GeneralOrSpecialVAT>
+    </InherentLabel>
+  </Header>
+  <EInvoiceData>
+    <SellerInformation><SellerName>合成测试销售方</SellerName><SellerIdNum>914401010000000002</SellerIdNum></SellerInformation>
+    <BuyerInformation><BuyerName>合成测试购买方</BuyerName><BuyerIdNum>914401010000000001</BuyerIdNum></BuyerInformation>
+    <BasicInformation>
+      <TotalAmWithoutTax>300.00</TotalAmWithoutTax><TotalTaxAm>32.00</TotalTaxAm><TotalTax-includedAmount>332.00</TotalTax-includedAmount>
+      <RequestTime>2026-10-25 23:50:00</RequestTime>
+      <Drawer>测试开票人</Drawer>
+    </BasicInformation>
+    <IssuItemInformation>
+      <ItemName>*服务*合成测试服务</ItemName><SpecMod>服务A</SpecMod><MeaUnits>项</MeaUnits>
+      <Quantity>1</Quantity><UnPrice>100.00</UnPrice><Amount>100.00</Amount><TaxRate>0.06</TaxRate><ComTaxAm>6.00</ComTaxAm>
+    </IssuItemInformation>
+    <IssuItemInformation>
+      <ItemName>*产品*合成测试零件</ItemName><SpecMod>A130</SpecMod><MeaUnits>个</MeaUnits>
+      <Quantity>3</Quantity><UnPrice>66.6666666666667</UnPrice><Amount>200.00</Amount><TaxRate>0.13</TaxRate><ComTaxAm>26.00</ComTaxAm>
+    </IssuItemInformation>
+    <SpecificInformation/>
+    <AdditionalInformation><Remark><![CDATA[合成测试 & XML内容 <不用于报销>]]></Remark></AdditionalInformation>
+  </EInvoiceData>
+  <TaxSupervisionInfo><InvoiceNumber>26000000000000000001</InvoiceNumber><IssueTime>2026-10-26</IssueTime></TaxSupervisionInfo>
+  <TaxBureauSignature><SignatureValue>DEMO-NOT-A-REAL-SIGNATURE</SignatureValue></TaxBureauSignature>
+</EInvoice>

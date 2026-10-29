@@ -1,0 +1,47 @@
+name: Publish Mitzh.Invoice.Core
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - run: dotnet restore Invoice.Core.sln --locked-mode
+      - run: dotnet build Invoice.Core.sln -c Release --no-restore
+      - name: Install PDF renderer for scanned-PDF checks
+        run: choco install poppler --yes --no-progress
+      - shell: pwsh
+        run: ./tests/RunChecks.ps1
+      - run: dotnet pack src/Invoice.Core -c Release --no-restore -o artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*.nupkg
+      - name: NuGet Trusted Publishing login
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ vars.NUGET_USER || 'Mitzh' }}
+      - name: Publish package
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+        run: |
+          $packages = @(Get-ChildItem artifacts -Filter '*.nupkg')
+          if ($packages.Count -ne 1) { throw 'Expected one Mitzh.Invoice.Core package.' }
+          foreach ($package in $packages) {
+            dotnet nuget push $package.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }

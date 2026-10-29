@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/App_Data/
+.dotnet/
+.vs/
+.idea/
+artifacts/
+*.nupkg
+*.snupkg
+*.user
+*.log
+.env
+appsettings.Local.json
