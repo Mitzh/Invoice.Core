@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/Mitzh/Invoice.Core/actions/workflows/ci.yml/badge.svg)](https://github.com/Mitzh/Invoice.Core/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/v/Mitzh.Invoice.Core.svg)](https://www.nuget.org/packages/Mitzh.Invoice.Core)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Powered by Codex](https://img.shields.io/badge/Powered%20by-Codex-412991)](https://openai.com/codex/)
 
@@ -10,12 +10,12 @@
 
 代码命名空间：`Mitzh.Invoice.Core`。本项目拥有独立目录、解决方案、Git 仓库和发布流程。
 
-.NET 8 离线发票解析类库，根命名空间 `Mitzh.Invoice.Core`。支持文件路径、文件流及 XML 内容，直接返回 `InvoiceModel`。
+.NET 10 离线发票解析类库，根命名空间 `Mitzh.Invoice.Core`。支持文件路径、文件流及 XML 内容，直接返回 `InvoiceModel`。
 
 ## 安装
 
 ```powershell
-dotnet add package Mitzh.Invoice.Core --version 2.0.0
+dotnet add package Mitzh.Invoice.Core --version 3.0.0
 ```
 
 ## 文件路径、流及 XML 内容
@@ -78,3 +78,7 @@ HTTP 服务见独立仓库 [Mitzh/Invoice.Api](https://github.com/Mitzh/Invoice.
 ## 版本迁移
 
 2.0.0 将原 `using Mitzh;` 拆分为各项目专属命名空间。类库调用者改用 `using Mitzh.Invoice.Core;`；API 类型位于 `Mitzh.Invoice.Api`。现有 HTTP 路由和 JSON 字段保持兼容。1.0.0 已发布版本不会被覆盖。
+
+## .NET 10 升级（3.0.0）
+
+3.0.0 仅面向 `net10.0`，需要 .NET 10 SDK / Runtime；Api 需要 ASP.NET Core 10 Runtime。原有命名空间、调用签名、HTTP 路由和 JSON 返回格式保持不变。Api 通过 NuGet 引用 Core 3.0.0，两个仓库继续独立构建。`global.json` 限定使用 .NET 10 SDK。需要继续使用 .NET 8 的应用可保留 2.x，不应直接升级到 3.x。

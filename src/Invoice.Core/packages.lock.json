@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "net8.0": {
+    "net10.0": {
       "PdfPig": {
         "type": "Direct",
         "requested": "[0.1.14, )",
@@ -39,7 +39,6 @@
         "resolved": "1.29.0",
         "contentHash": "jLy5PtzvRQCBFOczzfRY7zpuMVUyLwjO0Jsdd8MBZdmnPIqx5vW9cYDNyCqkrYpwkof8GlqBVaEUMWrMWRtvuw==",
         "dependencies": {
-          "System.Memory": "4.5.5",
           "System.Numerics.Tensors": "9.0.0"
         }
       },
@@ -66,11 +65,6 @@
         "type": "Transitive",
         "resolved": "3.119.1",
         "contentHash": "8C4GSXVJqSr0y3Tyyv5jz6MJSTVUyYkMjeKrzK+VyZPGLo89MNoUEclVuYahzOCDdtbfXrd2HtxXfDuvoSXrUw=="
-      },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
       },
       "System.Numerics.Tensors": {
         "type": "Transitive",
