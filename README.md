@@ -4,9 +4,6 @@
 [![NuGet](https://img.shields.io/nuget/v/Mitzh.Invoice.Core.svg)](https://www.nuget.org/packages/Mitzh.Invoice.Core)
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Powered by Codex](https://img.shields.io/badge/Powered%20by-Codex-412991)](https://openai.com/codex/)
-
-> 本项目由 **Codex 驱动支持**，使用 Codex 辅助完成开发、重构、测试和文档维护。
 
 代码命名空间：`Mitzh.Invoice.Core`。本项目拥有独立目录、解决方案、Git 仓库和发布流程。
 
